@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Private encrypted backup vault">
+  <title>Private Backup Vault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <header>
+        <div class="icon">🔐</div>
+        <div>
+          <h1>Private Backup Vault</h1>
+          <p>Encrypted personal backup</p>
+        </div>
+      </header>
+
+      <div id="message" class="message"></div>
+
+      <section id="setup">
+        <h2>Create master password</h2>
+        <p class="hint">
+          Password hanya dibuat sekali di perangkat ini.
+          Gunakan password panjang yang hanya Anda ketahui.
+        </p>
+
+        <input id="newPassword" type="password"
+          placeholder="Master password — minimal 16 karakter"
+          autocomplete="new-password">
+
+        <input id="confirmPassword" type="password"
+          placeholder="Ulangi master password"
+          autocomplete="new-password">
+
+        <button id="createBtn">Create Vault</button>
+      </section>
+
+      <section id="unlock" class="hidden">
+        <h2>Unlock vault</h2>
+        <p class="hint">Masukkan master password untuk membuka backup.</p>
+
+        <input id="password" type="password"
+          placeholder="Master password"
+          autocomplete="current-password">
+
+        <button id="unlockBtn">Unlock</button>
+      </section>
+
+      <section id="vault" class="hidden">
+        <div class="vault-top">
+          <div>
+            <h2>Encrypted Backup</h2>
+            <p class="hint">Data didekripsi hanya di browser Anda.</p>
+          </div>
+          <button id="lockBtn" class="small secondary">Lock</button>
+        </div>
+
+        <textarea id="backup"
+          placeholder="Masukkan Google backup codes Anda di sini..."></textarea>
+
+        <div class="buttons">
+          <button id="saveBtn">Encrypt & Save</button>
+          <button id="exportBtn" class="secondary">Export Encrypted Backup</button>
+          <button id="importBtn" class="secondary">Import Encrypted Backup</button>
+          <button id="deleteBtn" class="danger">Delete Backup</button>
+        </div>
+
+        <input id="fileInput" type="file" accept=".json" hidden>
+
+        <div class="warning">
+          <strong>Penting:</strong> backup terenkripsi disimpan di browser.
+          Untuk membuka backup yang sama di komputer lain, gunakan
+          <strong>Export Encrypted Backup</strong> lalu Import file tersebut
+          di komputer lain. Jangan upload plaintext backup ke GitHub.
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
